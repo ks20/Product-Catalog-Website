@@ -55,7 +55,9 @@ Now, you have successfully installed the dependencies specified in the `package.
 2. Images for each of the shoes.
 
 ### `UI Screenshots & Video Recordings`
+
 **Passing Test Cases**
+
 <img width="441" alt="Screen Shot 2023-05-31 at 9 52 54 AM" src="https://github.com/ks20/Product-Catalog-Website/assets/22456739/b0406c4c-9ca5-44a0-9019-464dd9cecdb0">
 
 **Viewing Products**
