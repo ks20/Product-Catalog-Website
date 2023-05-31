@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'http://localhost:3000', methods: ['GET', 'POST', 'DELETE'] }));
 
 app.use(express.json());
 
@@ -167,6 +167,21 @@ app.delete('/api/products/:id', (req, res) => {
     res.sendStatus(404); // Product not found
   }
 });
+
+// Add a new product
+app.post('/api/products', (req, res) => {
+  const { name, description, price, imageURL } = req.body;
+  const newProduct = {
+    id: products.length + 1,
+    name,
+    description,
+    price,
+    imageURL,
+  };
+  products.push(newProduct);
+  res.status(201).json(newProduct);
+});
+
 
 // Start the server
 const port = 3001;
