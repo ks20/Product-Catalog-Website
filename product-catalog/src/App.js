@@ -1,3 +1,13 @@
+
+/*
+
+The provided code is a React functional component (App.js) that renders a product catalog with the ability to:
+1. View products
+2. Add products
+3. Delete products.
+
+*/
+
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import './App.css';
