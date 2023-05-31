@@ -26,7 +26,7 @@ Now, you have successfully installed the dependencies specified in the `package.
 ### `Running the client and server applications`
 1. Start a local development server to run the clent-side React application. Open your terminal or command prompt, navigate to the project directory, and run the following command:
 
-### `npm start`
+  ### `npm start`
 
 This command will start the development server and automatically open the application in your default web browser.\
 
@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 2. Start another local server to run the server-side Node.js application. Open your terminal or command prompt, navigate to the project directory, and run the following command:
 
-### `node server.js`
+  ### `node server.js`
 
 This command will set up the server and define the product API endpoints:
 
