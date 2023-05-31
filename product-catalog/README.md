@@ -49,3 +49,20 @@ This command will read the `package.json` file and install all the dependencies 
 6. Once the installation is complete, you should see a new folder called `node_modules` in your project directory. This folder contains all the installed dependencies.
 
 Now, you have successfully installed the dependencies specified in the `package.json` file. You can start using these dependencies in your project.
+
+### `FUTURE IMPROVEMENTS:`
+1. Integrate with DB Service Provider, such as MongoDB.
+2. Images for each of the shoes.
+
+### `UI Screenshots & Video Recordings`
+**Passing Test Cases**
+<img width="441" alt="Screen Shot 2023-05-31 at 9 52 54 AM" src="https://github.com/ks20/Product-Catalog-Website/assets/22456739/b0406c4c-9ca5-44a0-9019-464dd9cecdb0">
+
+**Viewing Products**
+https://github.com/ks20/Product-Catalog-Website/assets/22456739/8267e587-fce3-447f-8c0e-61ad18d4c8a0
+
+**Deleting a Product**
+https://github.com/ks20/Product-Catalog-Website/assets/22456739/0c01f747-9b96-4318-b039-33afd63fa218
+
+**Adding a Product**
+https://github.com/ks20/Product-Catalog-Website/assets/22456739/3090f5fb-d476-4057-9e2d-a51d5da30cbc
