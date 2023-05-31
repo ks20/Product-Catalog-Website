@@ -5,15 +5,18 @@ import './App.css';
 Modal.setAppElement('#root');
 
 const App = () => {
+  // State variables
   const [products, setProducts] = useState([]);
   const [deleteProduct, setDeleteProduct] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isAddModalOpen, setAddModalOpen] = useState(false);
 
+  // Fetch products on component mount
   useEffect(() => {
     fetchProducts();
   }, []);
 
+  // Fetch products from API
   const fetchProducts = async () => {
     try {
       const response = await fetch('http://localhost:3001/api/products');
@@ -24,11 +27,13 @@ const App = () => {
     }
   };
 
+  // Set the product to be deleted and open the delete confirmation modal
   const handleDeleteProduct = (product) => {
     setDeleteProduct(product);
     setModalIsOpen(true);
   };
 
+  // Confirm and delete the selected product
   const confirmDeleteProduct = async () => {
     try {
       await fetch(`http://localhost:3001/api/products/${deleteProduct.id}`, {
@@ -42,10 +47,12 @@ const App = () => {
     }
   };
 
+  // Open the add product modal
   const handleAddProduct = () => {
     setAddModalOpen(true);
   };
 
+  // Handle form submission for adding a new product
   const handleAddFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -87,6 +94,7 @@ const App = () => {
         </button>
       </div>
       <div className="product-list">
+        {/* Render the list of products */}
         {products.map((product) => (
           <div className="product-card" key={product.id}>
             <img className="product-image" src={product.imageURL} alt={product.name} />
@@ -102,6 +110,7 @@ const App = () => {
         ))}
       </div>
 
+      {/* Delete confirmation modal */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
@@ -124,6 +133,7 @@ const App = () => {
         </div>
       </Modal>
 
+      {/* Add product modal */}
       <Modal
         isOpen={isAddModalOpen}
         onRequestClose={() => setAddModalOpen(false)}

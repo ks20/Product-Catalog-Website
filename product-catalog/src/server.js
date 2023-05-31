@@ -9,22 +9,6 @@ app.use(
 
 app.use(express.json());
 
-// mongoose.connect("mongodb://localhost:27017/product_catalog", {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => console.log("Connected to MongoDB"))
-//   .catch((error) => console.log("Failed to connect to MongoDB", error));
-
-// const productSchema = new mongoose.Schema({
-//   name: { type: String, required: true },
-//   description: { type: String, required: true },
-//   price: { type: Number, required: true },
-//   imageURL: { type: String, required: true },
-// });
-
-// const Product = mongoose.model('Product', productSchema);
-
 // Sample list of products (basketball shoes)
 let products = [
   {
@@ -220,39 +204,6 @@ app.post("/api/products", (req, res) => {
   products.push(newProduct);
   res.status(201).json(newProduct);
 });
-
-// app.get('/api/products', async (req, res) => {
-//   try {
-//     const products = await Product.find();
-//     res.json(products);
-//   } catch (error) {
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
-
-// app.post('/api/products', async (req, res) => {
-//   try {
-//     const { name, description, price, imageURL } = req.body;
-//     const newProduct = new Product({ name, description, price, imageURL });
-//     await newProduct.save();
-//     res.status(201).json(newProduct);
-//   } catch (error) {
-//     res.status(400).json({ error: 'Bad request' });
-//   }
-// });
-
-// app.delete('/api/products/:id', async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const deletedProduct = await Product.findByIdAndDelete(id);
-//     if (!deletedProduct) {
-//       return res.status(404).json({ error: 'Product not found' });
-//     }
-//     res.sendStatus(204);
-//   } catch (error) {
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
 
 // Start the server
 const port = 3001;
