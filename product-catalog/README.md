@@ -2,7 +2,68 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+It uses React.js for client-side application with Express.js and Node.js as the backend for defining APIs and routes.
+
+### `INSTALLING DEPENDENCIES:`
+To install the dependencies listed in the `package.json` file, you can follow these steps:
+
+1. Make sure you have Node.js and npm (Node Package Manager) installed on your system. You can download and install Node.js from the official website: https://nodejs.org
+
+2. Navigate to the directory containing the package.json file.
+
+4. Open your terminal or command prompt and run the following command to install the dependencies:
+
+```shell
+npm install
+```
+
+This command will read the `package.json` file and install all the dependencies listed in the `dependencies` section.
+
+5. After running the command, npm will download and install all the required dependencies. This may take a few moments depending on your internet speed.
+
+6. Once the installation is complete, you should see a new folder called `node_modules` in your project directory. This folder contains all the installed dependencies.
+
+Now, you have successfully installed the dependencies specified in the `package.json` file. You can start using these dependencies in your project.
+
+### `Running the client and server applications`
+1. Start a local development server to run the clent-side React application. Open your terminal or command prompt, navigate to the project directory, and run the following command:
+
+  ### `npm start`
+
+This command will start the development server and automatically open the application in your default web browser.\
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+2. Start another local server to run the server-side Node.js application. Open your terminal or command prompt, navigate to the project directory, and run the following command:
+
+  ### `node server.js`
+
+This command will set up the server and define the product API endpoints:
+
+3. You should be able to see the product catalog application running in your browser. The application fetches product data from a local API running on http://localhost:3001/api/products.
+
+### `FUTURE IMPROVEMENTS:`
+1. Integrate with DB Service Provider, such as MongoDB.
+2. Images for each of the shoes.
+
+### `UI Screenshots & Video Recordings`
+
+**Passing Test Cases**
+
+<img width="441" alt="Screen Shot 2023-05-31 at 9 52 54 AM" src="https://github.com/ks20/Product-Catalog-Website/assets/22456739/b0406c4c-9ca5-44a0-9019-464dd9cecdb0">
+
+**Viewing Products**
+https://github.com/ks20/Product-Catalog-Website/assets/22456739/8267e587-fce3-447f-8c0e-61ad18d4c8a0
+
+**Deleting a Product**
+https://github.com/ks20/Product-Catalog-Website/assets/22456739/0c01f747-9b96-4318-b039-33afd63fa218
+
+**Adding a Product**
+https://github.com/ks20/Product-Catalog-Website/assets/22456739/3090f5fb-d476-4057-9e2d-a51d5da30cbc
+
+
+## Extra Scripts
 
 In the project directory, you can run:
 
@@ -28,43 +89,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
