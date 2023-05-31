@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+It uses React.js for client-side application with Express.js and Node.js as the backend for defining APIs and routes.
+
 ### `INSTALLING DEPENDENCIES:`
 To install the dependencies listed in the `package.json` file, you can follow these steps:
 
