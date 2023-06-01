@@ -47,6 +47,7 @@ This command will set up the server and define the product API endpoints:
 1. Integrate with DB Service Provider, such as MongoDB.
 2. Images for each of the shoes.
 3. Disaggregate App.js components into individual React components broken down by functionality to make overall file leaner.
+4. Adding state to the 'Add A New Product' Modal attributes.
 
 ### `UI Screenshots & Video Recordings`
 
