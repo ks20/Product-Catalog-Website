@@ -22,7 +22,13 @@ const App = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isAddModalOpen, setAddModalOpen] = useState(false);
 
-  // Fetch products on component mount
+  /* 
+    Fetch products on component mount
+
+    The useEffect() hook allows you to perform such side effects in a React component. 
+    It takes two arguments: a function and an optional dependency array.
+    The function you provide as the first argument will be executed after the component has rendered and any time the component updates.
+  */
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -72,6 +78,15 @@ const App = () => {
 
   // Handle form submission for adding a new product
   const handleAddFormSubmit = async (event) => {
+    // Prevents the default form submission behavior.
+    // If you click this button, the page reloads because the browser actually automatically sends a request
+    // whenever a form is submitted to the server which is hosting this webpage.
+    // This prevents the browser from executing the default action associated with the form submission (typically, a page refresh), 
+    // allowing you to handle the submission in your own custom way using React's component logic.
+
+    // We can prevent the default of this request being sent and since that request is not sent, the page will now also not reload
+    // because we stay on the currently loaded page without sending any request anywhere, and we can continue handling this
+    // with Javascript.
     event.preventDefault();
 
     const form = event.target;
@@ -112,8 +127,11 @@ const App = () => {
         </button>
       </div>
       <div className="product-list">
-        {/* Render the list of products */}
+        {/* Render the list of products by taking each object in the products array & converting it into an instance of a React component*/}
         {products.map((product) => (
+          // React uses the key attribute to perform a process called "reconciliation," where it compares the current list of elements with the previous list, minimizing unnecessary re-renders and optimizing performance.
+          // When the list of elements is updated without a key attribute, React may inadvertently re-render or reset the state of existing components, leading to unexpected behavior. 
+          // By providing a stable and unique key, React can correctly identify components in the list and preserve their state during re-renders.
           <div className="product-card" key={product.id}>
             <img
               className="product-image"
