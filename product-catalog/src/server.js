@@ -11,12 +11,6 @@ app.use(
 
 app.use(express.json());
 
-// MongoDB connection setup
-mongoose.connect("mongodb://localhost:27017/product_catalog", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
 // Define a schema for the Product collection
 const productSchema = new Schema({
   _id: { type: Schema.Types.ObjectId, auto: true },
@@ -40,7 +34,24 @@ async function saveProducts() {
   }
 }
 
-saveProducts();
+// MongoDB connection setup
+mongoose.connect("mongodb://localhost:27017/product_catalog", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+/*   
+  Once the MongoDB connection is established, call the saveProducts() function
+
+  By using the .then() method on the mongoose.connect() promise, you can ensure that 
+  the saveProducts() function is called only when the MongoDB connection is successfully established. 
+  This will ensure that saveProducts() is executed once during the initial load of the application. 
+*/
+  saveProducts();
+})
+.catch((error) => {
+  console.error("Error connecting to MongoDB:", error);
+});
 
 // Get all products
 app.get("/api/products", async (req, res) => {

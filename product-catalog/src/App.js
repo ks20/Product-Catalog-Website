@@ -30,6 +30,7 @@ const App = () => {
     The function you provide as the first argument will be executed after the component has rendered and any time the component updates.
   */
   useEffect(() => {
+    // saveProducts();
     fetchProducts();
   }, []);
 
@@ -110,8 +111,13 @@ const App = () => {
         },
         body: JSON.stringify(newProduct),
       });
+      // Fetch the updated list of products after adding a new product
       fetchProducts();
+
+      // Close the add modal
       setAddModalOpen(false);
+
+      // Reset the form fields
       form.reset();
     } catch (error) {
       console.log(error);
