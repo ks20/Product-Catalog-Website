@@ -19,7 +19,15 @@ const App = () => {
   // useState() is React's way of saying that something changed and the component needs to be re-evaluated
   const [products, setProducts] = useState([]);
   const [deleteProduct, setDeleteProduct] = useState(null);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  // variable used to control visibility of "Delete Confirmation" modal
+  // set to true when user clicks "Delete" button on a product card, indicating intention to delete the product. 
+  // when isDeleteConfirmationModalOpen is true, the modal is displayed, and when it's false, the modal is hidden.
+  const [isDeleteConfirmationModalOpen, setisDeleteConfirmationModalOpen] = useState(false);
+
+  // variable used to control visibility of "Add Product" modal. 
+  // set to true when user clicks "Add A New Product" button, indicating intention to add a new product. 
+  // when isAddModalOpen is true, the modal is displayed, and when it's false, the modal is hidden.
   const [isAddModalOpen, setAddModalOpen] = useState(false);
 
   /* 
@@ -55,7 +63,7 @@ const App = () => {
   // Set the product to be deleted and open the delete confirmation modal
   const handleDeleteProduct = (product) => {
     setDeleteProduct(product);
-    setModalIsOpen(true);
+    setisDeleteConfirmationModalOpen(true);
   };
 
   // Confirm and delete the selected product
@@ -66,7 +74,7 @@ const App = () => {
       });
       fetchProducts();
       setDeleteProduct(null);
-      setModalIsOpen(false);
+      setisDeleteConfirmationModalOpen(false);
     } catch (error) {
       console.log(error);
     }
@@ -111,6 +119,7 @@ const App = () => {
         },
         body: JSON.stringify(newProduct),
       });
+      
       // Fetch the updated list of products after adding a new product
       fetchProducts();
 
@@ -161,8 +170,8 @@ const App = () => {
 
       {/* Delete confirmation modal */}
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        isOpen={isDeleteConfirmationModalOpen}
+        onRequestClose={() => setisDeleteConfirmationModalOpen(false)}
         className="modal"
         overlayClassName="modal-overlay"
       >
@@ -181,7 +190,7 @@ const App = () => {
             </button>
             <button
               className="modal-button cancel-button"
-              onClick={() => setModalIsOpen(false)}
+              onClick={() => setisDeleteConfirmationModalOpen(false)}
             >
               No
             </button>
@@ -247,3 +256,30 @@ const App = () => {
 };
 
 export default App;
+
+
+/* 
+MODAL IMPROVEMENTS:
+
+1. Extract the modal content into separate components: Instead of having the modal content directly in the App component, you can create separate components for each modal, such as DeleteConfirmationModal and AddProductModal. These components can encapsulate the modal content, including the title, form, buttons, and their respective logic.
+2. Modularize the code: Break down the JSX code into smaller, reusable components. For example, you could create a separate ProductCard component to render each product card. This way, the App component becomes more focused on managing state and handling events, while the rendering logic is encapsulated in individual components.
+3. Utilize prop drilling or context API: If you find yourself passing down props through multiple levels of components, you can consider using prop drilling techniques or utilizing React's Context API to avoid excessive prop passing and make the code more maintainable.
+4. Apply conditional rendering: Instead of toggling modal visibility using a separate state variable (isDeleteConfirmationModalOpen), you can utilize conditional rendering based on the presence of specific props or state values. For example, conditionally render the DeleteConfirmationModal or AddProductModal components only when needed. 
+
+
+PRODUCTION-READINESS:
+1. Code Optimization: Optimize your code by removing unnecessary dependencies, reducing bundle size, and improving performance. Minify and compress your JavaScript and CSS files to reduce file sizes and improve loading speed.
+2. Environment Variables: Use environment variables to configure your application for different environments (development, staging, production). This allows you to manage sensitive information (such as API keys or database credentials) separately for each environment and keep them secure.
+3. Error Handling: Implement robust error handling and logging mechanisms. Catch and handle errors gracefully to prevent crashes and unexpected behavior in the production environment. Log error details for easier debugging and troubleshooting.
+4. Security Measures: Apply security best practices to protect your application from common vulnerabilities. Sanitize user input, implement authentication and authorization mechanisms, and enable secure communication using HTTPS.
+5. Performance Optimization: Improve the performance of your application by implementing techniques such as code splitting, lazy loading, and caching. Optimize rendering and minimize unnecessary re-renders by using React's memoization and shouldComponentUpdate lifecycle methods.
+6. Testing: Implement automated tests to ensure the stability and correctness of your application. Write unit tests, integration tests, and end-to-end tests to cover critical functionality and edge cases. Continuously run tests as part of your development process to catch issues early.
+7. Deployment Strategy: Choose a suitable deployment strategy for your application. Set up a production environment with proper server configurations, scalability, and load balancing. Utilize deployment tools and services that streamline the deployment process and ensure smooth updates.
+8. Monitoring and Analytics: Set up monitoring and analytics tools to track application performance, usage patterns, and user behavior. Monitor server health, error rates, and performance metrics to proactively identify and address issues.
+9. Documentation: Provide comprehensive documentation for your application, including installation instructions, usage guidelines, and API documentation. Documenting your codebase helps other developers understand and contribute to your project.
+10. Continuous Integration and Deployment (CI/CD): Implement a CI/CD pipeline to automate build, test, and deployment processes. Use tools like Jenkins, Travis CI, or GitHub Actions to ensure consistent, reliable, and efficient delivery of your application updates.
+
+
+*/
+
+
